@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="data"
+            type="com.kailin.arch_kotlin_http.repo.typicode.TypiCode" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tag="@{data}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{isLoading? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:scrollbarStyle="outsideInset"
+            style="?android:attr/progressBarStyleSmall"
+            android:visibility="@{isLoading? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintLeft_toLeftOf="@id/image"
+            app:layout_constraintRight_toRightOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@{Integer.toString(data.id)}"
+            app:layout_constraintLeft_toLeftOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:ellipsize="end"
+            android:text="@{data.title}"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintLeft_toLeftOf="@id/text1"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

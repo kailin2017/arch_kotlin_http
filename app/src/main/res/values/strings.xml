@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CoroutinesArch</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="apiKey">13a05c2bf984177047f73bb4b095f06d</string>
+</resources>
